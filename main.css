@@ -1,0 +1,426 @@
+/**LOADER
+Se debe primero colocar el llamado del loader, siempre al final del HTML
+tambien estilar el body antes de 
+*/
+/**FUENTE GOOGLE**/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
+/**VARIABLES**/
+
+:root{
+    --yellow: #ffd602;
+    --red: #d5040a;
+    --blue: #036cb6;
+}
+
+body{
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    overflow: hidden; /*para que no se salga ningun elemento de nuestra pantalla*/
+}
+
+.page{
+    position: relative; /*se pone relativo para qe el loader se ponga aboslute */
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    position: absolute;
+    z-index: 1; 
+    display: grid;  /*Vamos a poner las filas y las columnas*/
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 50% 30%;
+    grid-template-areas:  "nav     aside"
+                          "section aside"
+                          "footer  aside";
+
+    height: 100%;
+    width: 100%;
+
+}
+
+.navbar{
+    background:rgb(255, 255, 255);
+    grid-area: nav;
+    display: flex;
+}
+
+.navbar__content{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 0 80px;
+
+    animation: animation-navbar 1s 0.5s ease-in-out;
+}
+
+@keyframes animation-navbar{
+    0% {
+        transform: translateY(-50px);
+        
+    }
+    100%{
+        transform: translateY(0px);
+        
+    }
+}
+
+
+
+
+
+.navbar__content img{
+    width: 50px;
+}
+
+.navbar__content ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    width: 450px;    
+}
+
+.navbar__content ul li a{
+    text-decoration: none;
+    color: var(--red);
+    font-weight: 600;
+}
+
+.navbar__content ul li a:hover{
+    
+    
+}
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background: var(--yellow);
+    border-radius: 0 80px 0 0;
+    transform: translateY(100%);
+    animation: footer;
+    animation-duration: 2s;
+    animation-delay: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;  /**para que se quede donde finalizo la animacion**/
+}
+@keyframes footer{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+.loader{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    display: flex; /*alineamos los divscentrados*/
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3; /*para que ocupe o se ponda antes que todos los elementos
+                en este caso se pone encima de 3 elementos*/
+    animation: loader 4s linear forwards;
+}
+
+
+@keyframes loader{
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    95% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden; /*para que despues del loader no se vea nada*/
+    }
+}
+
+
+.loader div{
+    background-color: rgb(0, 255, 26);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+
+    transform: scale(0);
+
+    animation: bolitas 4s ease-in infinite;
+}
+.loader div:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.loader div:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+.loader div:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+@keyframes bolitas {
+    0%,100% {
+        transform: scale(0.2);
+    }
+
+    40%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1);
+    }
+
+    
+}
+
+
+.main-content {
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
+    animation: animation-title 2s 0.6s ease-in-out;
+}
+.main-content p:first-child{
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0 0 -14px 44px;
+
+}
+.main-content h1{
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 28px 0;
+}
+
+.main-content p:last-child{
+    font-weight: 100;
+    margin: 0;
+    width: 60%;
+}
+@keyframes animation-title{
+    0% {
+        transform: translateX(-1550px);
+        
+    }
+    100%{
+        transform: translateY(0px);
+        
+    }
+}
+
+
+.side-content{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    grid-area: aside;
+    
+}
+
+.side-content p{
+    transform: rotate(-90deg);
+    font-size: 36px;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    opacity: 0;
+    animation-name: site-content-text;
+    animation-duration: 0.5s;
+    animation-delay: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes site-content-text{
+    0% {
+        opacity: 0;
+
+    }
+    100%{
+        opacity: 1;
+
+    }
+}
+
+.side-content img{
+    width: 100%;
+    grid-column: 2/6;
+    grid-row: 1/2;
+    animation: animation-superman 2s 0.4s ease-in-out;
+    z-index: 1000;
+}
+@keyframes animation-superman{
+    0% {
+        transform: translateY(1550px);
+        
+    }
+    100%{
+        transform: translateX(0px);
+        
+    }
+}
+
+
+.side-content div{
+    background-color: #ffd602;
+    grid-column: 4/7;
+    grid-row: 1/2;
+    height: 100%;
+}
+
+.footer div{
+    background: var(--blue);
+    width: 100px;
+    height: 80px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer div img{
+    width: 150px;
+    position: absolute;
+    bottom: 30px;
+
+    transform: translateY(0px) scale(1);
+    transition: transform 0.5s ease-in-out;
+
+}
+
+.footer div:hover img{
+   transform: translateY(-10px) scale(1.1);
+   transition: transform 0.3s ease-in-out;
+   cursor: pointer;
+}   
+
+.hidden{
+    display: none;
+}
+
+.visible{
+    display: grid;
+}
+
+.modal{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 10000;
+
+
+    
+    place-items: center;
+}
+
+.modal__container{
+    background: white;
+    width: 300px;
+    height: 350px;
+   /* display: grid;*/
+    place-items: center;
+    border-radius: 10px;
+   /** box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+}
+
+.modal__content--slider{
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+
+}
+
+.cards{
+    position: relative;
+    width: 100%;
+    height: 30%;
+}
+
+.card{
+    background: var(--yellow);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.4s ease-in;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 50%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+#radio-1:checked ~ .cards #card-1,
+#radio-2:checked ~ .cards #card-2,
+#radio-3:checked ~ .cards #card-3{
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+}
+
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.card img{
+    width: 130px;
+   
+}
+
+
+
+input{
+    display: none;
+
+}
+
+
+.modal__content--close{
+    width: 35px;
+    cursor: pointer;
+
+
+}
+
+.comprar{
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    border: none;
+    background-color: var(--red);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 100px;
+    margin-top: 1.5rem;
+}

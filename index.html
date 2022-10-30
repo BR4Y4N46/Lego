@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Page</title>
+</head>
+<body>
+    <div class="page">
+        <!--main content-->
+        <section class="container">
+            <nav class="navbar">
+                <div class="navbar__content">
+                    <img src="https://i.ibb.co/MMmDPXN/lego.png" alt="Legoicon">
+                    <ul>
+                        <li><a href="/">EXCLUSIVOS</a></li>
+                        <li><a href="/">NUEVOS</a></li>
+                        <li><a href="/">GIFT CARDS</a></li>
+                        <li><a href="/">FIND A STORE</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section class="main-content">
+                <p>Diseña tus</p>
+                <h1>Super Heroes Favoritos!</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum atque accusantium eos non sapiente excepturi, animi similique suscipit consequatur impedit sequi praesentium voluptatem unde porro cupiditate ea molestias quis mollitia?</p>
+            </section>
+
+            <section class="side-content">
+                <p>Superman</p>
+                <img src="https://i.ibb.co/x16pz1x/super-man.png" alt="superman">
+                <div></div>
+            </section>
+
+            <section class="footer">
+                <div id="button1">
+                    <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="spiderman">
+                </div>
+                <div id="button2">
+                    <img src="https://www.pngmart.com/files/19/Lego-Star-Wars-Toys-PNG-Pic.png" alt="starwars">
+                </div>
+                <div id="button3">
+                    <img src="https://imagensemoldes.com.br/wp-content/uploads/2020/07/Lego-Superman-PNG.png" alt="Superman">
+                </div>
+            </section>
+        </section>
+        <!--loader-->
+        <section class="loader1">
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <!--modal-->
+        <section class="modal hidden">
+            <div class="modal__container">
+                <img class="modal__content--close" src="https://img.icons8.com/color/48/FA5252/close-window.png"/>
+                <div class="modal__content--slider">
+                    <input type="radio" name="slider-1" id="radio-1" checked>
+                    <input type="radio" name="slider-1" id="radio-2" >
+                    <input type="radio" name="slider-1" id="radio-3" >
+                    
+                    <div class="cards">
+                        <label for="radio-1" id="card-1" class="card">
+                            <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="spiderman">
+                        </label>
+                        <label for="radio-2" id="card-2" class="card">
+                            <img src="https://www.pngmart.com/files/19/Lego-Star-Wars-Toys-PNG-Pic.png" alt="starwars">
+                        </label>
+                        <label for="radio-3" id="card-3" class="card">
+                            <img src="https://imagensemoldes.com.br/wp-content/uploads/2020/07/Lego-Superman-PNG.png" alt="superman">
+                        </label>
+                        
+                    </div>
+                    
+                </div> 
+                <button class="comprar">Comprar</button>
+            </div>
+            
+        </section>
+    </div>
+</body>
+<script src="./dom.js"></script>
+</html>
